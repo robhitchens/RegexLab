@@ -70,4 +70,11 @@ public class DataValidatorSpec {
         result = dataValidator.isValidIP(ip);
         assertFalse("ip hsould be invalid", result);
     }
+    @Test
+    public void isPalindromeTest(){
+        String palin = "boob";
+        String expected = "it is impossible using regular regex";
+        assertEquals(expected, dataValidator.isPalindromeUsingRegex(palin));
+    }
+
 }

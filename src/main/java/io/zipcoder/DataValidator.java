@@ -41,5 +41,9 @@ public class DataValidator {
             return false;
         }
     }
+    public static String isPalindromeUsingRegex(String palindrome){
+        return "it is impossible using regular regex";
+    }
+
 
 }
