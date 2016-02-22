@@ -54,6 +54,20 @@ public class DataValidatorSpec {
     }
     @Test
     public void isValidIpTest(){
-
+        String ip = "255.255.255.255";
+        boolean result = dataValidator.isValidIP(ip);
+        assertTrue("ip should be valid", result);
+        ip = "192.12.5.200";
+        result = dataValidator.isValidIP(ip);
+        assertTrue("ip should be valid", result);
+        ip = "1234.3.5678.9";
+        result = dataValidator.isValidIP(ip);
+        assertFalse("ip should be invalid", result);
+        ip ="I.Am.not.an.ip";
+        result = dataValidator.isValidIP(ip);
+        assertFalse("ip should be invalid", result);
+        ip = "666.666.666.666";
+        result = dataValidator.isValidIP(ip);
+        assertFalse("ip hsould be invalid", result);
     }
 }

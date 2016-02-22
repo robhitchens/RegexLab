@@ -14,10 +14,8 @@ public class DataValidator {
         Matcher m = r.matcher(username);
 
         if (m.find()) {
-            //System.out.println("Valid");
             return true;
         } else {
-            //System.out.println("Invalid");
             return false;
         }
     }
@@ -27,10 +25,19 @@ public class DataValidator {
         Matcher m = r.matcher(username);
 
         if (m.find()) {
-            //System.out.println("Valid");
             return true;
         } else {
-            //System.out.println("Invalid");
+            return false;
+        }
+    }
+    public static boolean isValidIP(String ip){
+        String zeroTo255 = "((25[0-5])|(2[0-4][0-9])|([0-1]?[0-9]?[0-9]))";
+        String pattern= zeroTo255+"\\."+zeroTo255+"\\."+zeroTo255+"\\."+zeroTo255;
+        Pattern p = Pattern.compile(pattern);
+        Matcher m = p.matcher(ip);
+        if(m.find()){
+            return true;
+        }else{
             return false;
         }
     }
