@@ -17,5 +17,43 @@ public class DataValidatorSpec {
         name="Disco";
         result = dataValidator.isValidUsername(name);
         assertFalse("username should be invalid", result);
+        name = "bo";
+        result = dataValidator.isValidUsername(name);
+        assertFalse("name should be invalid. is short",result);
+        name = "bo1234";
+        result = dataValidator.isValidUsername(name);
+        assertFalse("name should be invalid contains numbers",result);
+        name = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+        result = dataValidator.isValidUsername(name);
+        assertFalse("name should be invalid too long",result);
+    }
+    @Test
+    public void isValidEnhancedUserNameTest(){
+        String name = "disco";
+        boolean result = dataValidator.isValidEnhancedUsername(name);
+        assertTrue("username should be valid",result);
+        name = "bo1234";
+        result = dataValidator.isValidEnhancedUsername(name);
+        assertTrue("name should be valid contains numbers",result);
+        name = "bob_hitch";
+        result = dataValidator.isValidEnhancedUsername(name);
+        assertTrue(result);
+
+        name="5johnny";
+        result=dataValidator.isValidEnhancedUsername(name);
+        assertFalse(result);
+        name = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+        result = dataValidator.isValidEnhancedUsername(name);
+        assertFalse("name should be invalid too long",result);
+        name = "bo";
+        result = dataValidator.isValidEnhancedUsername(name);
+        assertFalse("name should be invalid. is short",result);
+        name="Disco";
+        result = dataValidator.isValidEnhancedUsername(name);
+        assertFalse("username should be invalid", result);
+    }
+    @Test
+    public void isValidIpTest(){
+
     }
 }

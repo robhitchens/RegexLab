@@ -21,5 +21,18 @@ public class DataValidator {
             return false;
         }
     }
+    public static boolean isValidEnhancedUsername(String username){
+        String pattern = "^[a-z][a-z0-9_]{2,24}$";
+        Pattern r = Pattern.compile(pattern);
+        Matcher m = r.matcher(username);
+
+        if (m.find()) {
+            //System.out.println("Valid");
+            return true;
+        } else {
+            //System.out.println("Invalid");
+            return false;
+        }
+    }
 
 }
